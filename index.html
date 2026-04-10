@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SBTI Test – Free Online Personality Test | Discover Your SBTI Type</title>
+  <meta name="description" content="Take the free SBTI test online and discover your unique personality type. The SBTI test is a fun, viral personality quiz with 31 questions and 27 hilarious result types. Start your SBTI test now!" />
+  <meta name="keywords" content="sbti test, sbti personality test, sbti test online, free sbti test, sbti test results, sbti types" />
+  <link rel="canonical" href="https://sbtitest.info/" />
+  <meta property="og:title" content="SBTI Test – Free Online Personality Test" />
+  <meta property="og:description" content="Take the free SBTI test and discover your personality type. 31 questions, 27 unique results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sbtitest.info/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SBTI Test – Free Online Personality Test" />
+  <meta name="twitter:description" content="Take the free SBTI test and discover your personality type. 31 questions, 27 unique results." />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"SBTI Test","url":"https://sbtitest.info/","description":"Free online SBTI personality test with 31 questions and 27 unique personality types."}
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SBTI<span>Test</span></a>
+      <nav class="nav">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="test.html" class="btn-nav" data-i18n="nav_test">Take the Test</a>
+        <button class="btn-lang" id="langBtn" onclick="toggleLang()">中文</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-badge" data-i18n="hero_badge">🔥 Trending in 2026</div>
+      <h1 data-i18n="hero_h1">The SBTI Test — Discover Your True Personality Type</h1>
+      <p class="hero-sub" data-i18n="hero_sub">The SBTI test is the internet's most entertaining personality quiz. Answer 31 brutally honest questions and find out which of the 27 SBTI personality types you really are.</p>
+      <a href="test.html" class="btn-primary" data-i18n="hero_cta">Start Free SBTI Test →</a>
+      <div class="hero-stats">
+        <div class="stat"><strong>31</strong><span data-i18n="stat_q">Questions</span></div>
+        <div class="stat"><strong>27</strong><span data-i18n="stat_t">Personality Types</span></div>
+        <div class="stat"><strong>Free</strong><span data-i18n="stat_f">No Sign-up</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-what">
+    <div class="container">
+      <h2 data-i18n="what_h2">What Is the SBTI Test?</h2>
+      <div class="what-grid">
+        <div class="what-text">
+          <p data-i18n="what_p1" data-i18n-html>The <strong>SBTI test</strong> is a viral online personality test...</p>
+          <p data-i18n="what_p2">What makes the SBTI test unique...</p>
+          <p data-i18n="what_p3">The SBTI test was originally created...</p>
+        </div>
+        <div class="what-card">
+          <h3 data-i18n="why_h3">Why Take the SBTI Test?</h3>
+          <ul>
+            <li data-i18n="why_1">✅ Completely free — no account needed</li>
+            <li data-i18n="why_2">✅ Only 31 questions, done in under 5 minutes</li>
+            <li data-i18n="why_3">✅ 27 unique SBTI personality types</li>
+            <li data-i18n="why_4">✅ Shareable results for social media</li>
+            <li data-i18n="why_5">✅ Surprisingly accurate self-reflection</li>
+            <li data-i18n="why_6">✅ Updated for 2026 with fresh questions</li>
+          </ul>
+          <a href="test.html" class="btn-primary" style="margin-top:1.5rem;display:inline-block;" data-i18n="why_cta">Take the SBTI Test Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-how">
+    <div class="container">
+      <h2 data-i18n="how_h2">How Does the SBTI Test Work?</h2>
+      <p class="section-sub" data-i18n="how_sub">The SBTI test is straightforward. Here's what to expect:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3 data-i18n="step1_h">Answer 31 Questions</h3>
+          <p data-i18n="step1_p">The SBTI test presents 31 multiple-choice questions...</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3 data-i18n="step2_h">Get Your SBTI Result</h3>
+          <p data-i18n="step2_p">After completing all 31 SBTI test questions...</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3 data-i18n="step3_h">Share Your Type</h3>
+          <p data-i18n="step3_p">Share your SBTI test result with friends...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-types">
+    <div class="container">
+      <h2 data-i18n="types_h2">SBTI Test Personality Types</h2>
+      <p class="section-sub" data-i18n="types_sub">The SBTI test can reveal any of these 27 personality archetypes.</p>
+      <div class="types-grid" id="typesGrid"></div>
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="test.html" class="btn-primary" data-i18n="types_cta">Find Out Your SBTI Type →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-faq">
+    <div class="container">
+      <h2 data-i18n="faq_h2">SBTI Test FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 data-i18n="faq_q1">What does SBTI stand for?</h3>
+          <p data-i18n="faq_a1">SBTI stands for a humorous personality classification system...</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq_q2">Is the SBTI test accurate?</h3>
+          <p data-i18n="faq_a2">The SBTI test is primarily designed for fun...</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq_q3">How long does the SBTI test take?</h3>
+          <p data-i18n="faq_a3">Most people complete the SBTI test in 3 to 5 minutes...</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq_q4">Can I retake the SBTI test?</h3>
+          <p data-i18n="faq_a4">Yes! You can retake the SBTI test as many times as you like...</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq_q5">How many personality types does the SBTI test have?</h3>
+          <p data-i18n="faq_a5">The SBTI test has 27 distinct personality types...</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq_q6">Where did the SBTI test come from?</h3>
+          <p data-i18n="faq_a6">The SBTI test was originally created by a Chinese content creator...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-cta">
+    <div class="container cta-inner">
+      <h2 data-i18n="cta_h2">Ready to Take the SBTI Test?</h2>
+      <p data-i18n="cta_p">Join millions of people who have already discovered their SBTI personality type.</p>
+      <a href="test.html" class="btn-primary btn-large" data-i18n="cta_btn">Start the SBTI Test — It's Free →</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo">SBTI<span>Test</span></span>
+        <p data-i18n="footer_tag">A fun, free personality test inspired by internet culture.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer_types_h">Personality Types</h4>
+        <div class="footer-types">
+          <a href="test.html">BOSS</a><a href="test.html">MONK</a><a href="test.html">SEXY</a>
+          <a href="test.html">CTRL</a><a href="test.html">GOGO</a><a href="test.html">SOLO</a>
+          <a href="test.html">FAKE</a><a href="test.html">DEAD</a><a href="test.html">OJBK</a>
+          <a href="test.html">HHHH</a><a href="test.html">SHIT</a><a href="test.html">LOVE-R</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer_copy">© 2026 SBTI Test. Original concept by Bilibili creator @蛆肉儿串儿. For entertainment purposes only.</p>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    const TYPE_DATA = [
+      { key:'BOSS',  ext:'png', zh:'领导者',    en:'The Leader',       tagline:'你们都给我听好了' },
+      { key:'MONK',  ext:'png', zh:'僧人',      en:'The Monk',         tagline:'爱恨情仇，与我无关' },
+      { key:'SEXY',  ext:'png', zh:'尤物',      en:'The Charmer',      tagline:'我只是随便站了一下' },
+      { key:'CTRL',  ext:'png', zh:'拿捏者',    en:'The Controller',   tagline:'怎么样，被我拿捏了吧' },
+      { key:'GOGO',  ext:'png', zh:'行者',      en:'The Doer',         tagline:'说干就干，废话少说' },
+      { key:'HHHH',  ext:'png', zh:'傻乐者',    en:'The Laugher',      tagline:'哈哈哈哈哈哈哈哈哈' },
+      { key:'SOLO',  ext:'png', zh:'孤儿',      en:'The Lone Wolf',    tagline:'我一个人挺好的，谢' },
+      { key:'FAKE',  ext:'png', zh:'伪人',      en:'The Pretender',    tagline:'我哪有，我真没有' },
+      { key:'DEAD',  ext:'png', zh:'死者',      en:'The Ghost',        tagline:'我在，但我不在' },
+      { key:'ZZZZ',  ext:'png', zh:'装死者',    en:'The Sleeper',      tagline:'等我睡醒再说' },
+      { key:'OJBK',  ext:'png', zh:'无所谓人',  en:'The Chill One',    tagline:'随便，都行，无所谓' },
+      { key:'SHIT',  ext:'png', zh:'愤世者',    en:'The Cynic',        tagline:'这世界就是一坨' },
+      { key:'LOVE-R',ext:'png', zh:'多情者',    en:'The Romantic',     tagline:'ta今天没回消息是不是不爱我了' },
+      { key:'JOKE-R',ext:'jpg', zh:'小丑',      en:'The Clown',        tagline:'小丑竟是我自己' },
+      { key:'THIN-K',ext:'png', zh:'思考者',    en:'The Thinker',      tagline:'等等，让我再想想' },
+      { key:'THAN-K',ext:'png', zh:'感恩者',    en:'The Grateful',     tagline:'谢谢你，真的谢谢你' },
+      { key:'MUM',   ext:'png', zh:'妈妈',      en:'The Caretaker',    tagline:'你吃了吗？多穿点' },
+      { key:'IMSB',  ext:'png', zh:'傻者',      en:'The Fool',         tagline:'啊？啊！哦……啊？' },
+      { key:'MALO',  ext:'png', zh:'吗喽',      en:'The Underdog',     tagline:'吗喽打工，感天动地' },
+      { key:'DRUNK', ext:'png', zh:'酒鬼',      en:'The Party Animal', tagline:'再来一杯，我没事的' },
+      { key:'POOR',  ext:'png', zh:'贫困者',    en:'The Broke One',    tagline:'钱包空了，心也空了' },
+      { key:'OH-NO', ext:'png', zh:'哦不人',    en:'The Worrier',      tagline:'完了完了完了完了' },
+      { key:'WOC!',  ext:'png', zh:'握草人',    en:'The Shocked',      tagline:'握草？！握草！！' },
+      { key:'ATM-er',ext:'png', zh:'送钱者',    en:'The Giver',        tagline:'没事，我请客' },
+      { key:'IMFW',  ext:'png', zh:'废物',      en:'The Slacker',      tagline:'废物本废，问心无愧' },
+      { key:'FUCK',  ext:'png', zh:'草者',      en:'The Wild One',     tagline:'管他呢，冲就完了' },
+      { key:'Dior-s',ext:'jpg', zh:'屌丝',      en:'The Underachiever',tagline:'我有潜力，只是没用' },
+    ];
+
+    const TYPE_NAMES_ZH = Object.fromEntries(TYPE_DATA.map(t => [t.key, t.zh]));
+    const TYPE_NAMES_EN = Object.fromEntries(TYPE_DATA.map(t => [t.key, t.en]));
+
+    function renderTypeGrid() {
+      const grid = document.getElementById('typesGrid');
+      if (!grid) return;
+      grid.innerHTML = TYPE_DATA.map(t => `
+        <a href="test.html" class="type-card">
+          <img src="static/${t.key}.${t.ext}" alt="${t.key}" class="type-img" onerror="this.style.display='none'">
+          <span class="type-code">${t.key}</span>
+          <span class="type-name">${currentLang === 'zh' ? t.zh : t.en}</span>
+          <span class="type-tagline">${t.tagline}</span>
+        </a>
+      `).join('');
+    }
+
+    const _origToggle = toggleLang;
+    window.toggleLang = function() {
+      _origToggle();
+      renderTypeGrid();
+    };
+
+    applyLang();
+    renderTypeGrid();
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SBTI Test – 31 Questions to Find Your Personality Type | Free</title>
+  <meta name="description" content="Take the free SBTI test now. Answer 31 questions and instantly discover your SBTI personality type. No sign-up required." />
+  <meta name="keywords" content="sbti test, take sbti test, sbti test questions, sbti test free, sbti personality test online" />
+  <link rel="canonical" href="https://sbtitest.info/test.html" />
+  <meta property="og:title" content="SBTI Test – 31 Questions to Find Your Personality Type" />
+  <meta property="og:description" content="Take the free SBTI test now. 31 questions, instant results, 27 personality types." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SBTI<span>Test</span></a>
+      <nav class="nav">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="test.html" class="btn-nav" data-i18n="nav_test">Take the Test</a>
+        <button class="btn-lang" id="langBtn" onclick="toggleLang()">中文</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="test-hero">
+    <div class="container">
+      <h1 data-i18n="test_h1">SBTI Test — 31 Questions</h1>
+      <p data-i18n="test_sub">Answer every question honestly. Your SBTI test result depends on it.</p>
+    </div>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <div class="test-wrapper">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-label" id="progressLabel">0 / 31</div>
+
+        <form id="sbtiForm">
+          <div class="questions-list" id="questionsList"></div>
+          <div class="test-footer">
+            <div class="test-footer-inner">
+              <p class="test-footer-hint" data-i18n="progress_hint">Answer all questions to unlock your SBTI test result.</p>
+              <div class="test-footer-actions">
+                <button type="button" class="btn-secondary" id="restartBtn" data-i18n="btn_restart">Restart</button>
+                <button type="submit" class="btn-submit" id="submitBtn" disabled data-i18n="btn_submit">Submit & See Result</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo">SBTI<span>Test</span></span>
+        <p data-i18n="footer_tag">A fun, free personality test inspired by internet culture.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer_quick">Quick Links</h4>
+        <div class="footer-types">
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a href="test.html" data-i18n="nav_test">Take Test</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer_copy">© 2026 SBTI Test. For entertainment purposes only.</p>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="test.js"></script>
+  <script>
+    document.getElementById('restartBtn').addEventListener('click', resetTest);
+    applyLang();
+    // Re-render questions on lang toggle to show translated text
+    const _origToggle = toggleLang;
+    window.toggleLang = function() {
+      _origToggle();
+      renderQuestions();
+    };
+  </script>
+</body>
+</html>

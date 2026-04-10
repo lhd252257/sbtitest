@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your SBTI Test Result | SBTI Personality Type</title>
+  <meta name="description" content="Your SBTI test result is ready. Discover which of the 27 SBTI personality types you are and share your result with friends." />
+  <link rel="canonical" href="https://sbtitest.info/result.html" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SBTI<span>Test</span></a>
+      <nav class="nav">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="test.html" class="btn-nav" data-i18n="nav_retake">Retake Test</a>
+        <button class="btn-lang" id="langBtn" onclick="toggleLang()">中文</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="result-section">
+    <div class="container">
+
+      <!-- 结果卡片（用于截图分享） -->
+      <div class="result-wrapper" id="resultWrapper">
+        <div class="result-badge" data-i18n="result_badge">🎉 Your SBTI Test Result</div>
+
+        <!-- 可截图区域 -->
+        <div class="result-card" id="shareCard">
+          <div class="result-card-bg"></div>
+          <img id="typeImg" src="" alt="" class="result-type-img" />
+          <div class="result-type-code" id="typeCode">—</div>
+          <div class="result-type-name" id="typeName">Loading...</div>
+          <div class="result-card-site">sbtitest.info</div>
+        </div>
+
+        <div class="result-desc" id="typeDesc"></div>
+
+        <div class="result-actions">
+          <a href="test.html" class="btn-primary" data-i18n="result_retake">Retake the SBTI Test</a>
+          <button class="btn-secondary" id="shareImgBtn" onclick="shareAsImage()" data-i18n="result_share">Share My Result</button>
+          <a href="index.html" class="btn-secondary" data-i18n="result_home">Back to Home</a>
+        </div>
+
+        <!-- 生成中提示 -->
+        <p id="shareHint" style="display:none;font-size:0.85rem;color:#6a786f;margin-top:0.75rem;text-align:center;"></p>
+      </div>
+
+      <div id="noResult" style="display:none;text-align:center;padding:4rem 0;">
+        <p style="color:#6a786f;font-size:1.1rem;margin-bottom:1.5rem;" data-i18n="no_result">No SBTI test result found. Please take the test first.</p>
+        <a href="test.html" class="btn-primary" data-i18n="no_result_cta">Take the SBTI Test →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分享预览弹窗 -->
+  <div id="shareModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:1rem;" onclick="if(event.target===this)this.style.display='none'">
+    <div style="background:#fff;border-radius:1.25rem;padding:1.5rem;max-width:480px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,0.25);text-align:center;">
+      <p style="font-size:0.9rem;color:#6a786f;margin-bottom:1rem;" id="shareModalHint"></p>
+      <img id="sharePreviewImg" src="" alt="share preview" style="width:100%;border-radius:0.75rem;border:1px solid #dbe8dd;" />
+      <div style="margin-top:1.25rem;display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+        <button onclick="document.getElementById('shareModal').style.display='none'" style="background:#fff;border:1px solid #dbe8dd;color:#4d6a53;padding:0.6rem 1.5rem;border-radius:0.875rem;font-weight:700;font-size:0.9rem;cursor:pointer;">关闭</button>
+        <a id="shareDownloadBtn" href="" download="" style="background:#4d6a53;color:#fff;padding:0.6rem 1.5rem;border-radius:0.875rem;font-weight:700;font-size:0.9rem;text-decoration:none;">保存图片</a>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:#fff;padding:4rem 0;">
+    <div class="container" style="max-width:780px;">
+      <h2 data-i18n="result_h2">About Your SBTI Test Result</h2>
+      <p style="color:#4a5e50;margin-top:1rem;margin-bottom:1rem;" data-i18n="result_p1">Your SBTI test result is calculated based on your answers...</p>
+      <p style="color:#4a5e50;margin-bottom:1rem;" data-i18n="result_p2">The SBTI test evaluates how you respond to real-life scenarios...</p>
+      <p style="color:#4a5e50;margin-bottom:2rem;" data-i18n="result_p3">Remember: the SBTI test is designed for fun and self-reflection...</p>
+      <a href="test.html" class="btn-primary" data-i18n="result_again">Take the SBTI Test Again</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo">SBTI<span>Test</span></span>
+        <p data-i18n="footer_tag">A fun, free personality test inspired by internet culture.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer_quick">Quick Links</h4>
+        <div class="footer-types">
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a href="test.html" data-i18n="nav_retake">Retake Test</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer_copy">© 2026 SBTI Test. For entertainment purposes only.</p>
+    </div>
+  </footer>
+
+  <!-- QR code library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="test.js"></script>
+  <script>
+    const IMG_EXT = { 'JOKE-R':'jpg', 'Dior-s':'jpg' };
+    function getImgSrc(key) {
+      return `static/${key}.${IMG_EXT[key] || 'png'}`;
+    }
+
+    // Taglines per type
+    const TYPE_TAGLINES = {
+      BOSS:'你们都给我听好了', MONK:'爱恨情仇，与我无关', SEXY:'我只是随便站了一下',
+      CTRL:'怎么样，被我拿捏了吧', GOGO:'说干就干，废话少说', HHHH:'哈哈哈哈哈哈哈哈哈',
+      SOLO:'我一个人挺好的，谢', FAKE:'我哪有，我真没有', DEAD:'我在，但我不在',
+      ZZZZ:'等我睡醒再说', OJBK:'随便，都行，无所谓', SHIT:'这世界就是一坨',
+      'LOVE-R':'ta今天没回消息是不是不爱我了', 'JOKE-R':'小丑竟是我自己',
+      'THIN-K':'等等，让我再想想', 'THAN-K':'谢谢你，真的谢谢你',
+      MUM:'你吃了吗？多穿点', IMSB:'啊？啊！哦……啊？', MALO:'吗喽打工，感天动地',
+      DRUNK:'再来一杯，我没事的', POOR:'钱包空了，心也空了', 'OH-NO':'完了完了完了完了',
+      'WOC!':'握草？！握草！！', 'ATM-er':'没事，我请客', IMFW:'废物本废，问心无愧',
+      FUCK:'管他呢，冲就完了', 'Dior-s':'我有潜力，只是没用'
+    };
+
+    // Dimension max scores for match% calculation
+    const DIM_MAX = { A:21, I:12, M:15, S:9, W:15, C:12, P:9 };
+    const DIM_TOTAL = Object.values(DIM_MAX).reduce((a,b) => a+b, 0); // 93
+
+    function calcMatch(scores, typeKey) {
+      if (!scores) return null;
+      // Count how many of the 7 dims are "high" (>=55% of max)
+      const dims = Object.keys(DIM_MAX);
+      let hitCount = 0;
+      dims.forEach(dim => {
+        const max = DIM_MAX[dim];
+        if ((scores[dim] || 0) / max >= 0.55) hitCount++;
+      });
+      // Match% = total score / total max, scaled to 60-99 range
+      const rawTotal = dims.reduce((s, d) => s + (scores[d] || 0), 0);
+      const rawPct = rawTotal / DIM_TOTAL;
+      const pct = Math.round(60 + rawPct * 39);
+      return { pct: Math.min(99, pct), hit: hitCount, total: dims.length };
+    }
+
+    let resultKey = null;
+    let resultScores = null;
+
+    function updateResultLang() {
+      if (!resultKey) return;
+      document.getElementById('typeName').textContent = getTypeName(resultKey);
+      document.getElementById('typeDesc').textContent = getTypeDesc(resultKey);
+    }
+
+    const raw = sessionStorage.getItem('sbtiResult');
+    if (raw) {
+      const result = JSON.parse(raw);
+      resultKey = result.key;
+      resultScores = result.scores || null;
+      document.getElementById('typeCode').textContent = result.key;
+      const img = document.getElementById('typeImg');
+      img.src = getImgSrc(result.key);
+      img.alt = result.key;
+    } else {
+      document.getElementById('resultWrapper').style.display = 'none';
+      document.getElementById('noResult').style.display = 'block';
+    }
+
+    applyLang();
+    updateResultLang();
+
+    // Canvas helpers
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    function wrapText(ctx, text, x, y, maxW, lineH) {
+      const chars = text.split('');
+      let line = '', curY = y;
+      for (let i = 0; i < chars.length; i++) {
+        const test = line + chars[i];
+        if (ctx.measureText(test).width > maxW && line !== '') {
+          ctx.fillText(line, x, curY);
+          line = chars[i];
+          curY += lineH;
+        } else {
+          line = test;
+        }
+      }
+      if (line) ctx.fillText(line, x, curY);
+      return curY;
+    }
+
+    function loadImage(src) {
+      // Use absolute URL to ensure correct resolution regardless of page location
+      const absUrl = src.startsWith('http') ? src : (window.location.origin + '/' + src.replace(/^\//, ''));
+      return fetch(absUrl)
+        .then(r => { if (!r.ok) throw new Error('fetch ' + r.status); return r.blob(); })
+        .then(blob => new Promise((resolve, reject) => {
+          const url = URL.createObjectURL(blob);
+          const img = new Image();
+          // Do NOT revoke until after canvas draw — keep url alive
+          img.onload = () => resolve({ img, url });
+          img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('img load failed')); };
+          img.src = url;
+        }));
+    }
+
+    // Generate QR code as Image element
+    function genQR(text, size) {
+      return new Promise((resolve, reject) => {
+        if (typeof QRCode === 'undefined') { reject(new Error('no qrcode')); return; }
+        const canvas = document.createElement('canvas');
+        QRCode.toCanvas(canvas, text, { width: size, margin: 1, color: { dark:'#2d4a33', light:'#ffffff' } }, err => {
+          if (err) { reject(err); return; }
+          const img = new Image();
+          img.onload = () => resolve(img);
+          img.src = canvas.toDataURL();
+        });
+      });
+    }
+
+    // Draw the share card on a canvas and return canvas element
+    // typeImg may be null (text-only fallback); match = { pct, hit, total } or null
+    function drawCard(typeImg, qrImg, match) {
+      const W = 640, PAD = 40, PAD_H = 32;
+      const isZh = currentLang === 'zh';
+      const typeName = getTypeName(resultKey);
+      const tagline = TYPE_TAGLINES[resultKey] || '';
+
+      // Layout heights
+      const topPillH = 48;      // top pill badge area
+      const subtitleH = 32;     // "你的人格类型是："
+      const codeH = 56;         // large type code line
+      const nameH = 36;         // type name line
+      const imgAreaH = typeImg ? 260 : 0;
+      const belowImgH = typeImg ? 80 : 0;  // code+name repeated below image
+      const matchH = match ? 44 : 0;
+      const taglineH = tagline ? 40 : 0;
+      const qrAreaH = 88;       // always show QR row or fallback
+      const H = topPillH + subtitleH + codeH + nameH + imgAreaH + belowImgH + matchH + taglineH + qrAreaH + PAD;
+
+      const canvas = document.createElement('canvas');
+      canvas.width = W;
+      canvas.height = H;
+      const ctx = canvas.getContext('2d');
+
+      // Card background
+      const bg = ctx.createLinearGradient(0, 0, W, H);
+      bg.addColorStop(0, '#f4fbf5');
+      bg.addColorStop(1, '#e8f5eb');
+      ctx.fillStyle = bg;
+      roundRect(ctx, 0, 0, W, H, 28);
+      ctx.fill();
+
+      // ── Top pill badge (centered, small capsule) ──
+      const pillLabel = isZh ? 'SBTI 人格测试结果' : 'SBTI Personality Result';
+      ctx.font = 'bold 15px -apple-system, sans-serif';
+      const pillTW = ctx.measureText(pillLabel).width;
+      const pillW = pillTW + 36, pillH = 30, pillR = 15;
+      const pillX = (W - pillW) / 2, pillY = (topPillH - pillH) / 2;
+      ctx.fillStyle = '#ffffff';
+      ctx.strokeStyle = '#4d6a53';
+      ctx.lineWidth = 1.5;
+      roundRect(ctx, pillX, pillY, pillW, pillH, pillR);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = '#4d6a53';
+      ctx.textAlign = 'center';
+      ctx.fillText(pillLabel, W / 2, pillY + 20);
+
+      let y = topPillH + 20;
+
+      // ── Subtitle ──
+      ctx.fillStyle = '#6a786f';
+      ctx.font = '15px -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(isZh ? '你的人格类型是：' : 'Your SBTI personality type is:', W / 2, y);
+      y += subtitleH;
+
+      // ── Large type code ──
+      ctx.fillStyle = '#2d4a33';
+      ctx.font = 'bold 44px -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(resultKey, W / 2, y + 44);
+      y += codeH;
+
+      // ── Type name ──
+      ctx.fillStyle = '#4d6a53';
+      ctx.font = '20px -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(typeName, W / 2, y + 20);
+      y += nameH + 16;
+
+      // ── Personality image ──
+      if (typeImg) {
+        const imgSize = 240;
+        const imgX = (W - imgSize) / 2;
+        ctx.save();
+        roundRect(ctx, imgX, y, imgSize, imgSize, 16);
+        ctx.clip();
+        ctx.drawImage(typeImg, imgX, y, imgSize, imgSize);
+        ctx.restore();
+        ctx.strokeStyle = 'rgba(77,106,83,0.2)';
+        ctx.lineWidth = 2;
+        roundRect(ctx, imgX, y, imgSize, imgSize, 16);
+        ctx.stroke();
+        y += imgSize + 16;
+
+        // Code + name repeated below image
+        ctx.fillStyle = '#2d4a33';
+        ctx.font = 'bold 32px -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(resultKey, W / 2, y + 32);
+        ctx.fillStyle = '#4d6a53';
+        ctx.font = '16px -apple-system, sans-serif';
+        ctx.fillText(typeName, W / 2, y + 54);
+        y += belowImgH;
+      }
+
+      // ── Match% badge ──
+      if (match) {
+        const badgeText = isZh
+          ? `匹配度 ${match.pct}% · 精准命中 ${match.hit}/${match.total} 维`
+          : `Match ${match.pct}% · ${match.hit}/${match.total} dims`;
+        ctx.font = 'bold 14px -apple-system, sans-serif';
+        const bw = ctx.measureText(badgeText).width + 32;
+        const bx = (W - bw) / 2;
+        ctx.fillStyle = '#edf6ef';
+        ctx.strokeStyle = '#4d6a53';
+        ctx.lineWidth = 1.5;
+        roundRect(ctx, bx, y, bw, 30, 15);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = '#2d4a33';
+        ctx.textAlign = 'center';
+        ctx.fillText(badgeText, W / 2, y + 20);
+        y += matchH;
+      }
+
+      // ── Tagline (no quotes) ──
+      if (tagline) {
+        ctx.fillStyle = '#4d6a53';
+        ctx.font = 'italic 17px -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(tagline, W / 2, y + 26);
+        y += taglineH;
+      }
+
+      // ── QR + site info (horizontal: QR left, text right) ──
+      const qrSize = 64;
+      const rowY = y + 12;
+      if (qrImg) {
+        const totalW = qrSize + 12 + 140;
+        const rowX = (W - totalW) / 2;
+        ctx.drawImage(qrImg, rowX, rowY, qrSize, qrSize);
+        ctx.fillStyle = '#2d4a33';
+        ctx.font = 'bold 14px -apple-system, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('sbtitest.info', rowX + qrSize + 12, rowY + 22);
+        ctx.fillStyle = '#8aaa90';
+        ctx.font = '13px -apple-system, sans-serif';
+        ctx.fillText(isZh ? '扫码测测你是什么人格' : 'Scan to take the test', rowX + qrSize + 12, rowY + 42);
+      } else {
+        ctx.fillStyle = '#8aaa90';
+        ctx.font = '13px -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('sbtitest.info', W / 2, rowY + 22);
+        ctx.fillText(isZh ? '扫码测测你是什么人格' : 'Scan to take the test', W / 2, rowY + 42);
+      }
+
+      return canvas;
+    }
+
+    async function shareAsImage() {
+      const btn = document.getElementById('shareImgBtn');
+      const hint = document.getElementById('shareHint');
+      btn.disabled = true;
+      hint.style.display = 'block';
+      hint.textContent = currentLang === 'zh' ? '正在生成图片...' : 'Generating image...';
+
+      try {
+        const match = calcMatch(resultScores, resultKey);
+
+        let typeImg = null;
+        let typeImgUrl = null;
+        try {
+          const loaded = await loadImage(getImgSrc(resultKey));
+          typeImg = loaded.img;
+          typeImgUrl = loaded.url;
+        } catch (e) { console.warn('loadImage failed:', e); }
+
+        let qrImg = null;
+        try { qrImg = await genQR('https://sbtitest.info/', 80); } catch (e) {}
+
+        const canvas = drawCard(typeImg, qrImg, match);
+
+        let dataUrl;
+        try {
+          dataUrl = canvas.toDataURL('image/png');
+        } catch (secErr) {
+          const c2 = drawCard(null, qrImg, match);
+          dataUrl = c2.toDataURL('image/png');
+        }
+
+        // Now safe to revoke
+        if (typeImgUrl) URL.revokeObjectURL(typeImgUrl);
+
+        const filename = `sbti-${resultKey}.png`;
+
+        // 触发下载
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = filename;
+        a.click();
+
+        // 弹出预览弹窗
+        const modal = document.getElementById('shareModal');
+        document.getElementById('sharePreviewImg').src = dataUrl;
+        document.getElementById('shareModalHint').textContent =
+          currentLang === 'zh' ? '图片已下载，也可长按保存' : 'Image saved — long press to save on mobile';
+        const dlBtn = document.getElementById('shareDownloadBtn');
+        dlBtn.href = dataUrl;
+        dlBtn.download = filename;
+        modal.style.display = 'flex';
+
+        hint.style.display = 'none';
+        btn.disabled = false;
+
+      } catch (e) {
+        console.error(e);
+        hint.textContent = currentLang === 'zh' ? '生成失败，请截图分享' : 'Failed, please screenshot manually.';
+        btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

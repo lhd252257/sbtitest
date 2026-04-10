@@ -194,36 +194,40 @@ const TYPES = {
 
 function getResult(scores) {
   const { A=0, I=0, M=0, S=0, W=0, C=0, P=0, D=0 } = scores;
+  // Normalize to 0-100 based on max possible per dimension
+  const MAX = { A:21, I:12, M:15, S:9, W:15, C:12, P:9 };
+  const n = dim => Math.round((scores[dim] || 0) / MAX[dim] * 100);
+  const nA=n('A'), nI=n('I'), nM=n('M'), nS=n('S'), nW=n('W'), nC=n('C'), nP=n('P');
+
   // Special drink gate
   if (D === 3) return 'DRUNK';
-  // Scoring logic based on dimension combinations
-  if (M >= 8 && W >= 6 && C <= 4) return 'BOSS';
-  if (M >= 8 && P >= 6) return 'CTRL';
-  if (M >= 7 && S >= 6) return 'GOGO';
-  if (A >= 8 && S >= 6) return 'LOVE-R';
-  if (A >= 8 && C >= 6) return 'OH-NO';
-  if (A >= 7 && W <= 4) return 'IMSB';
-  if (I >= 8 && C >= 6) return 'MONK';
-  if (I >= 8 && W >= 6) return 'SOLO';
-  if (I >= 7 && M <= 4) return 'DEAD';
-  if (S >= 8 && W >= 6) return 'SEXY';
-  if (S >= 8 && A >= 6) return 'MUM';
-  if (S >= 7 && M >= 6) return 'HHHH';
-  if (W >= 8 && C <= 4) return 'THIN-K';
-  if (W >= 7 && M >= 6) return 'FAKE';
-  if (C >= 8 && M <= 4) return 'SHIT';
-  if (C >= 7 && A >= 5) return 'JOKE-R';
-  if (C >= 6 && I >= 6) return 'ZZZZ';
-  if (P >= 7 && M >= 5) return 'GOGO';
-  if (P >= 7 && C >= 5) return 'CTRL';
-  if (M <= 4 && C <= 4 && A <= 4) return 'OJBK';
-  if (M <= 3 && W <= 3) return 'IMFW';
-  if (A >= 6 && M >= 5) return 'ATM-er';
-  if (C >= 5 && S <= 4) return 'WOC!';
-  if (M >= 5 && C >= 5) return 'THAN-K';
-  if (S >= 5 && C >= 5) return 'MALO';
-  if (M <= 5 && A >= 5) return 'POOR';
-  if (I >= 5 && S >= 5) return 'FUCK';
+
+  // High thresholds (>=65%) for primary dims, medium (>=45%) for secondary
+  if (nM >= 65 && nW >= 55 && nC <= 40) return 'BOSS';
+  if (nI >= 65 && nC >= 55) return 'MONK';
+  if (nI >= 65 && nW >= 55) return 'SOLO';
+  if (nS >= 65 && nW >= 55) return 'SEXY';
+  if (nA >= 65 && nS >= 55) return 'LOVE-R';
+  if (nA >= 65 && nC >= 55) return 'OH-NO';
+  if (nM >= 65 && nS >= 55) return 'GOGO';
+  if (nM >= 65 && nP >= 60) return 'CTRL';
+  if (nS >= 65 && nA >= 55) return 'MUM';
+  if (nW >= 65 && nC <= 35) return 'THIN-K';
+  if (nC >= 65 && nM <= 35) return 'SHIT';
+  if (nC >= 65 && nA >= 50) return 'JOKE-R';
+  if (nW >= 60 && nM >= 55) return 'FAKE';
+  if (nS >= 60 && nM >= 50) return 'HHHH';
+  if (nI >= 60 && nM <= 35) return 'DEAD';
+  if (nA >= 55 && nW <= 35) return 'IMSB';
+  if (nC >= 55 && nI >= 55) return 'ZZZZ';
+  if (nA >= 55 && nM >= 50) return 'ATM-er';
+  if (nM >= 50 && nC >= 50) return 'THAN-K';
+  if (nS >= 50 && nC >= 50) return 'MALO';
+  if (nI >= 50 && nS >= 50) return 'FUCK';
+  if (nC >= 50 && nS <= 35) return 'WOC!';
+  if (nM <= 35 && nA >= 45) return 'POOR';
+  if (nM <= 30 && nW <= 30) return 'IMFW';
+  if (nM <= 40 && nC <= 40 && nA <= 40) return 'OJBK';
   return 'Dior-s';
 }
 
